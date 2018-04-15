@@ -83,7 +83,11 @@ WSGI_APPLICATION = 'FlashCourses.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+<<<<<<< HEAD
         'NAME': 'db.sqlite3',
+=======
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+>>>>>>> 2a22e606f059dc4c8ef056016433ac48660a6706
     }
 }
 
