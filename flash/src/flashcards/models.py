@@ -10,7 +10,7 @@ import uuid
 
 class Deck(models.Model):
     title = models.CharField(max_length=64, null=False, blank=False)
-    unique_id = models.UUIDField(default=uuid.uuid4())
+    unique_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     parent_user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     parent_course = models.ForeignKey(Course, on_delete=models.CASCADE, default=1)
 
@@ -43,7 +43,7 @@ class Deck(models.Model):
 
 
 class Card(models.Model):
-    unique_id = models.UUIDField(default=uuid.uuid4())
+    unique_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     parent_deck = models.ForeignKey(Deck, on_delete=models.CASCADE, default=1)
     front = models.TextField()
     back = models.TextField()
